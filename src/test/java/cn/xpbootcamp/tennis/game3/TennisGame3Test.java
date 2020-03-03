@@ -1,6 +1,10 @@
-package cn.xpbootcamp.tennis;
+package cn.xpbootcamp.tennis.game3;
 
 
+import cn.xpbootcamp.tennis.TennisGame;
+import cn.xpbootcamp.tennis.game1.TennisGame1;
+import cn.xpbootcamp.tennis.game2.TennisGame2;
+import cn.xpbootcamp.tennis.game3.TennisGame3;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -10,7 +14,7 @@ import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
-class TennisTest {
+class TennisGame3Test {
     private int player1Score;
     private int player2Score;
     private String expectedScore;

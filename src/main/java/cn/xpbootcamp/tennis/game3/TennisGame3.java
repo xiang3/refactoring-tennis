@@ -1,4 +1,6 @@
-package cn.xpbootcamp.tennis;
+package cn.xpbootcamp.tennis.game3;
+
+import cn.xpbootcamp.tennis.TennisGame;
 
 public class TennisGame3 implements TennisGame {
 
