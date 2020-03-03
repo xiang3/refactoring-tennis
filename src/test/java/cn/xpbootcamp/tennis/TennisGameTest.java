@@ -1,7 +1,6 @@
-package cn.xpbootcamp.tennis.game3;
+package cn.xpbootcamp.tennis;
 
 
-import cn.xpbootcamp.tennis.TennisGame;
 import cn.xpbootcamp.tennis.game1.TennisGame1;
 import cn.xpbootcamp.tennis.game2.TennisGame2;
 import cn.xpbootcamp.tennis.game3.TennisGame3;
@@ -14,7 +13,7 @@ import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
-class TennisGame3Test {
+class TennisGameTest {
     private int player1Score;
     private int player2Score;
     private String expectedScore;
