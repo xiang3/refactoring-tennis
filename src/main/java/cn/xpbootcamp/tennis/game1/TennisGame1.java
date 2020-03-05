@@ -17,67 +17,57 @@ public class TennisGame1 implements TennisGame {
     public String getScore() {
         StringBuilder score = new StringBuilder();
         if (mScore1 == mScore2) {
-            score = getAllScore();
+            return getAllScore();
         } else if (mScore1 >= 4 || mScore2 >= 4) {
-            score = getPlayerInfo();
+           return getPlayerInfo();
         } else {
-            getThreeRoundScore(score);
+            return getTwoPlayerScore();
+        }
+    }
+
+    private String getTwoPlayerScore() {
+        String score1 = getPlayerScore(mScore1);
+        String score2 = getPlayerScore(mScore2);
+        return String.join("-", score1, score2);
+    }
+
+    private String getPlayerScore(int mScore) {
+        StringBuilder score = new StringBuilder();
+        switch (mScore) {
+            case 0:
+                score.append("Love");
+                break;
+            case 1:
+                score.append("Fifteen");
+                break;
+            case 2:
+                score.append("Thirty");
+                break;
+            case 3:
+                score.append("Forty");
+                break;
         }
         return score.toString();
     }
 
-    private void getThreeRoundScore(StringBuilder score) {
-        int tempScore;
-        for (int i = 1; i < 3; i++) {
-            if (i == 1) tempScore = mScore1;
-            else {
-                score.append("-");
-                tempScore = mScore2;
-            }
-            switch (tempScore) {
-                case 0:
-                    score.append("Love");
-                    break;
-                case 1:
-                    score.append("Fifteen");
-                    break;
-                case 2:
-                    score.append("Thirty");
-                    break;
-                case 3:
-                    score.append("Forty");
-                    break;
-            }
-        }
-    }
-
-    private StringBuilder getPlayerInfo() {
-        StringBuilder score;
+    private String getPlayerInfo() {
         int minusResult = mScore1 - mScore2;
-        if (minusResult == 1) score = new StringBuilder("Advantage player1");
-        else if (minusResult == -1) score = new StringBuilder("Advantage player2");
-        else if (minusResult >= 2) score = new StringBuilder("Win for player1");
-        else score = new StringBuilder("Win for player2");
-        return score;
+        if (minusResult == 1) return "Advantage player1";
+        else if (minusResult == -1) return "Advantage player2";
+        else if (minusResult >= 2) return "Win for player1";
+        else return "Win for player2";
     }
 
-    private StringBuilder getAllScore() {
-        StringBuilder score;
+    private String getAllScore() {
         switch (mScore1) {
             case 0:
-                score = new StringBuilder("Love-All");
-                break;
+                return "Love-All";
             case 1:
-                score = new StringBuilder("Fifteen-All");
-                break;
+                return "Fifteen-All";
             case 2:
-                score = new StringBuilder("Thirty-All");
-                break;
+                return "Thirty-All";
             default:
-                score = new StringBuilder("Deuce");
-                break;
-
+                return "Deuce";
         }
-        return score;
     }
 }
